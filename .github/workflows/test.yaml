@@ -39,7 +39,7 @@ jobs:
         go-version: '${{ inputs.go_version }}'
     - run: go version
     - name: Cache Go Modules
-      uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2  # v4.0.0
+      uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9  # v4.0.2
       with:
         path: |
           ~/go/pkg/mod
@@ -56,7 +56,7 @@ jobs:
       run: |
         make test
     - name: Parse Coverage
-      uses: codecov/codecov-action@0cfda1dd0a4ad9efc75517f399d859cd1ea4ced1 # v4.0.2
+      uses: codecov/codecov-action@7afa10ed9b269c561c2336fd862446844e0cbf71 # v4.2.0
       with:
         flags: unittests  # optional
 
@@ -76,7 +76,7 @@ jobs:
         go-version: '${{ inputs.go_version }}'
     - run: go version
     - name: Cache Go Modules
-      uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2  # v4.0.0
+      uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9  # v4.0.2
       with:
         path: |
           ~/go/pkg/mod
@@ -123,7 +123,7 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
     - name: Scan Repo
-      uses: aquasecurity/trivy-action@062f2592684a31eb3aa050cc61e7ca1451cecd3d  # master
+      uses: aquasecurity/trivy-action@207cd40078971bb7a078f8504c2061f908569449  # master
       with:
         scan-type: 'fs'
         ignore-unfixed: true
@@ -133,6 +133,6 @@ jobs:
         severity: ${{ inputs.scan_severity }}
         exit-code: '1'
     - name: Upload Report
-      uses: github/codeql-action/upload-sarif@47b3d888fe66b639e431abf22ebca059152f1eea # v3.24.5
+      uses: github/codeql-action/upload-sarif@4355270be187e1b672a7a1c7c7bae5afdc1ab94a # v3.24.10
       with:
         sarif_file: 'trivy-results.sarif'
