@@ -123,7 +123,7 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938 # v4.2.0
     - name: Scan Repo
-      uses: aquasecurity/trivy-action@97646fedde05bcd0961217c60b50e23f721e7ec7  # master
+      uses: aquasecurity/trivy-action@89b14e517dd8699cba3d787e53d4355cad28605c  # master
       with:
         scan-type: 'fs'
         ignore-unfixed: true
